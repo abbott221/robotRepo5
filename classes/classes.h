@@ -75,6 +75,11 @@ public:
 
     bool getState();
 
+    void setMovement( int callID, int value);
+    void setMovement( int callID, float value);
+    void setMovement( int callID, double value);
+    void setMovement( int callID);
+
     void set_iMovement( int callID, int value);
     void set_fMovement( int callID, float value);
     void set_dMovement( int callID, double value);

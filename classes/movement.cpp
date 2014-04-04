@@ -65,6 +65,102 @@ bool Movement::getState()
 
 
 
+
+
+
+
+
+
+
+
+
+void Movement::setMovement( int callID, int value)
+{
+    TypeEnum checkMe = opTracker.tracker[callID].getDataType();
+
+    if (checkMe == tInt)
+    {
+        set_iMovement(callID, value);
+    }
+    else if (checkMe == tFloat)
+    {
+        set_fMovement(callID, value);
+    }
+    else if (checkMe == tDouble)
+    {
+        set_dMovement(callID, value);
+    }
+    else if (checkMe == tVoid)
+    {
+        set_vMovement(callID);
+    }
+}
+
+void Movement::setMovement( int callID, float value)
+{
+    TypeEnum checkMe = opTracker.tracker[callID].getDataType();
+
+    if (checkMe == tInt)
+    {
+        set_iMovement(callID, value);
+    }
+    else if (checkMe == tFloat)
+    {
+        set_fMovement(callID, value);
+    }
+    else if (checkMe == tDouble)
+    {
+        set_dMovement(callID, value);
+    }
+    else if (checkMe == tVoid)
+    {
+        set_vMovement(callID);
+    }
+}
+
+void Movement::setMovement( int callID, double value)
+{
+    TypeEnum checkMe = opTracker.tracker[callID].getDataType();
+
+    if (checkMe == tInt)
+    {
+        set_iMovement(callID, value);
+    }
+    else if (checkMe == tFloat)
+    {
+        set_fMovement(callID, value);
+    }
+    else if (checkMe == tDouble)
+    {
+        set_dMovement(callID, value);
+    }
+    else if (checkMe == tVoid)
+    {
+        set_vMovement(callID);
+    }
+}
+
+void Movement::setMovement( int callID)
+{
+    set_vMovement(callID);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void Movement::set_iMovement( int callID, int value)
 {
     operationCallID = callID;

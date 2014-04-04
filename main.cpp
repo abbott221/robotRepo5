@@ -605,10 +605,6 @@ void MainMenuCall()
         moveChoice = moveChoice + (12 * pageChoice);
 
 
-
-
-
-
         mTracker.tracker[moveChoice].setState(false);
     }
 
@@ -749,6 +745,8 @@ void ConfigureMenuCall()
 
     //configureSelect[9].setOption(11, "  Data Spew Modulus");
     configureMenu.addOption("  Time between displays");
+
+    configureMenu.addOption("  Read RPS Displaced");
 
 
 
@@ -942,6 +940,34 @@ void ConfigureMenuCall()
 
         //dataSpew = tempSpew;
         displayRate = tempRate;
+    }
+
+
+
+    //read displaced values
+    else if (configureChoice == 9)
+    {
+        while( buttons.MiddlePressed() )
+        {
+            //this menu is entered by pressing the middle button
+        }
+        TheRPS.InitializeMenu();
+        TheRPS.Enable();
+        while( !buttons.MiddlePressed() )
+        {
+            cleaner.update();
+            LCD.Write(cleaner.getCurrentX());
+            LCD.Write(" ");
+            LCD.Write(cleaner.getCurrentY());
+            LCD.Write(" ");
+            LCD.WriteLine(cleaner.getCurrentHead());
+            Sleep(.10);
+        }
+        TheRPS.Disable();
+        while( buttons.MiddlePressed() )
+        {
+            //nothing
+        }
     }
 }
 
